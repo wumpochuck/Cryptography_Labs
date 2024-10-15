@@ -1,7 +1,6 @@
 package Kursovaya;
 
 import java.math.BigInteger;
-import java.util.Scanner;
 
 public class GOST28147_89 {
 
@@ -24,7 +23,6 @@ public class GOST28147_89 {
             { 12, 12, 14, 2, 3, 11, 9, 3 } };
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
         String input = "ЗАЦЕПИНМ";
         String key = "АНДР";
 
@@ -72,7 +70,6 @@ public class GOST28147_89 {
         System.out.println("(L1) = (R0)");
         System.out.println("-------------------------");
 
-        scanner.close();
     }
 
     public static String string2binary(String str) {

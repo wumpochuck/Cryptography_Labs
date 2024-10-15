@@ -1,14 +1,12 @@
 package Kursovaya;
 
 import java.math.BigInteger;
-import java.util.Scanner;
 
 public class RSA {
 
     public static String alphabet = "АБВГДЕËЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯ";
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
         String input = "ЗМА";
         int p = 41;
         int q = 29;
@@ -34,6 +32,7 @@ public class RSA {
         System.out.println(String.format("%-25s%3s %4s", "Закрытый ключ (d,n):", d, n));
 
         System.out.println("-------------------------");
+        System.out.println("Ответ:");
         BigInteger input_nums[] = string2nums(input);
         System.out.print(String.format("%-25s", "Исходная строка (числа):"));
         for (int i = 0; i < 3; i++) {
@@ -53,7 +52,6 @@ public class RSA {
         }
         System.out.println();
 
-        scanner.close();
     }
 
     public static int find_d(int fi_n) {
@@ -83,14 +81,13 @@ public class RSA {
     public static int find_e(int d, int fi_n) {
         int e = -1;
         // d * e = 1mod(fi_n)
-        // 3 * e = 1mod(1120)
-        // e = (1120 * y + 1) / 3
+        // e = (fi_n * y + 1) / d
 
         int y = 1;
-        while ((1120 * y + 1) % 3 != 0) {
+        while ((fi_n * y + 1) % 3 != 0) {
             y += 1;
         }
-        e = ((1120 * y + 1) / 3);
+        e = ((fi_n * y + 1) / 3);
 
         return e;
     }
