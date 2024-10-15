@@ -1,10 +1,11 @@
-package Kursach;
+package Kursovaya;
 
 import java.math.BigInteger;
 import java.util.Scanner;
 
 public class GOST28147_89 {
 
+    public static String alphabet = "АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯ";
     public static int[][] matrixOfNums = {
             { 1, 13, 4, 6, 7, 5, 14, 4 },
             { 15, 11, 11, 12, 13, 8, 11, 10 },
@@ -78,7 +79,7 @@ public class GOST28147_89 {
         String step1 = "";
 
         for (int i = 0; i < str.length(); i++) {
-            String char2 = Integer.toBinaryString(((int) str.charAt(i) - (int) 'А') ^ 192);
+            String char2 = Integer.toBinaryString(alphabet.indexOf(str.charAt(i)) ^ 192);
             step1 += char2;
         }
 
